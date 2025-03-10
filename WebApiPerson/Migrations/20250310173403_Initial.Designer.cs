@@ -11,7 +11,7 @@ using WebApiPerson.Context;
 namespace WebApiPerson.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250310170648_Initial")]
+    [Migration("20250310173403_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -35,8 +35,9 @@ namespace WebApiPerson.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<int>("Name")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
